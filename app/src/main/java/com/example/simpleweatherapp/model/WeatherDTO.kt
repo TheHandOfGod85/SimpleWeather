@@ -73,7 +73,7 @@ data class Sys (
 )
 
 // Extension method
-// converte gli oggetti WeatherDTO in WeatherModel
+// converts objects WeatherDTO in WeatherModel
 fun WeatherDTO.toModel(): WeatherModel {
 
     // default result

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <!-- a variable to bind the layout to the viewModel -->
       <variable
         name="viewModel"
         type="com.example.simpleweatherapp.viewModel.WeatherViewModel" />

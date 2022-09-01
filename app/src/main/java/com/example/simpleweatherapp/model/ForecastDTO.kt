@@ -3,7 +3,7 @@ package com.example.simpleweatherapp.model
 
 import com.google.gson.annotations.SerializedName
 
-// new
+// new gfgf
 data class ForecastDTO (
 
     @SerializedName("cod"     ) var cod     : String?         = null,

@@ -1,7 +1,7 @@
 package com.example.simpleweatherapp.model
 
 import com.google.gson.annotations.SerializedName
-import com.squareup.moshi.JsonClass
+
 
 data class WeatherDTO (
     @SerializedName("coord"      ) var coord      : Coord?             = Coord(),

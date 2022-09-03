@@ -2,6 +2,8 @@ package com.example.simpleweatherapp.model
 
 import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.JsonClass
+import java.util.*
+import kotlin.collections.ArrayList
 
 data class WeatherDTO (
     @SerializedName("coord"      ) var coord      : Coord?             = Coord(),
@@ -80,13 +82,13 @@ fun WeatherDTO.toModel(): WeatherModel {
     var newWeather = WeatherModel()
 
     this.name?.let {
-        newWeather.name = it
+        newWeather.name = it.uppercase()
     }
 
     if (weather.isNotEmpty()) {
         var arrayWeather = this.weather[0]
         arrayWeather.description?.let {
-            newWeather.description = it
+            newWeather.description = it.uppercase()
         }
     }
 

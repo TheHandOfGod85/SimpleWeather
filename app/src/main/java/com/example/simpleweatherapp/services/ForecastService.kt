@@ -34,7 +34,7 @@ class ForecastService() {
                 }
             }
         } catch (ex: Exception) {
-            // gestire l'errore
+            // manage error
             val error = ex.message
             val x = 1
 

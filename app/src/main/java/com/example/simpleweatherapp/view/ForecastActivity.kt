@@ -1,34 +1,36 @@
 package com.example.simpleweatherapp.view
 
-import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.simpleweatherapp.R
 import com.example.simpleweatherapp.databinding.ActivityMainBinding
-import com.example.simpleweatherapp.viewModel.WeatherViewModel
+import com.example.simpleweatherapp.viewModel.ForecastViewModel
 
-class MainActivity : AppCompatActivity() {
-
-
-    private var _binding : ActivityMainBinding? = null
+class ForecastActivity : AppCompatActivity() {
+    private var _binding : ActivityMainBinding? = DataBindingUtil.setContentView(this, R.layout.activity_forecast)
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
     // the viewModel takes care about the data from the repository so the view doesn't have any connection with it
-    val viewModel by lazy {
-        ViewModelProvider(this)[WeatherViewModel::class.java]
+    val forecastViewModel by lazy {
+        ViewModelProvider(this)[ForecastViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         _binding = ActivityMainBinding.inflate(layoutInflater)
-        binding.viewModel = viewModel
+
+
 
         binding.lifecycleOwner = this
 
         setContentView(binding.root)
+
     }
 }

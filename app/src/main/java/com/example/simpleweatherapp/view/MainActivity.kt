@@ -1,35 +1,33 @@
 package com.example.simpleweatherapp.view
 
-import android.content.Intent
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.replace
+import com.example.simpleweatherapp.R
 import com.example.simpleweatherapp.databinding.ActivityMainBinding
-import com.example.simpleweatherapp.viewModel.WeatherViewModel
+
 
 class MainActivity : AppCompatActivity() {
-
-
-    private var _binding : ActivityMainBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    // the viewModel takes care about the data from the repository so the view doesn't have any connection with it
-    val viewModel by lazy {
-        ViewModelProvider(this)[WeatherViewModel::class.java]
-    }
+    private var binding: ActivityMainBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
 
-        _binding = ActivityMainBinding.inflate(layoutInflater)
-        binding.viewModel = viewModel
+        binding!!.btnToWeather.setOnClickListener{
+            replaceFragment(WeatherFragment())
+        }
 
-        binding.lifecycleOwner = this
+    }
 
-        setContentView(binding.root)
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_container, fragment)
+        fragmentTransaction.commit()
     }
 
 }

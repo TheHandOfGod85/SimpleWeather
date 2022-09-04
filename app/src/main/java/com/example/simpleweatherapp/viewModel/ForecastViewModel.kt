@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class ForecastViewModel(): ViewModel() {
     private val forecastRepository = ForecastService()
 
-    val cityName : MutableLiveData<String> = MutableLiveData("")
+    private val cityName : MutableLiveData<String> = MutableLiveData("")
     val forecastResult : MutableLiveData<ForecastModel> = MutableLiveData(ForecastModel())
 
     fun getForecastByCityName(){

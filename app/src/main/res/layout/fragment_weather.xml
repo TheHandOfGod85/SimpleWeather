@@ -9,6 +9,9 @@
         <variable
             name="viewModel"
             type="com.example.simpleweatherapp.viewModel.WeatherViewModel" />
+        <variable
+            name="weatherFragment"
+            type="com.example.simpleweatherapp.view.WeatherFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,23 +21,15 @@
         tools:context=".view.MainActivity">
 
         <Button
-            android:id="@+id/btn_forecast"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#cdb4db"
-            android:text="Check Forecast"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
             android:id="@+id/btn_search_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#cdb4db"
             android:onClick="@{ () -> viewModel.getWeatherByCityName() }"
             android:text="Check Weather"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,11 +40,11 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="City name"
+            android:inputType="textPersonName"
+            android:minHeight="55dp"
             android:text="@={viewModel.cityName}"
             android:textColor="@color/black"
             android:textColorHint="@color/teal_200"
-            android:inputType="textPersonName"
-            android:minHeight="55dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_search_city" />
@@ -59,10 +54,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
             android:text="@{ viewModel.weatherResult.name }"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_insert_city" />
 
         <TextView
@@ -70,10 +65,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
             android:text="@{ viewModel.weatherResult.description }"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/weather_main" />
 
         <TextView
@@ -81,8 +76,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
             android:text="@{ viewModel.weatherResult.toString() }"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

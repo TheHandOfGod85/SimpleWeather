@@ -11,4 +11,11 @@ class ForecastModel {
     var humidity: Int = 0
     var name: String = ""
     var date: String = ""
+
+
+    override fun toString(): String {
+        return super.toString()
+    }
+
+
 }

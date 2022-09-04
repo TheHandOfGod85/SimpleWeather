@@ -14,20 +14,21 @@ import com.example.simpleweatherapp.databinding.FragmentWeatherBinding
 import com.example.simpleweatherapp.viewModel.WeatherViewModel
 
 class WeatherFragment: Fragment(R.layout.fragment_weather) {
-    private lateinit var binding: FragmentWeatherBinding
+    private  var binding: FragmentWeatherBinding? = null
+    private val sharedViewModel: WeatherViewModel by activityViewModels()
 
-
-
-
-    // the viewModel takes care about the data from the repository so the view doesn't have any connection with it
-    private val viewModel by lazy {
-        ViewModelProvider(this)[WeatherViewModel::class.java]
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentWeatherBinding.bind(view)
+        binding?.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = sharedViewModel
+            weatherFragment = this@WeatherFragment
+        }
+    }
 
-        binding.viewModel = viewModel
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

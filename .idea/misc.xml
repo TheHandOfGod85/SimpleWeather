@@ -7,8 +7,10 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/SimpleWeatherApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/UKGC/StudioProjects/SimpleWeather/app/src/main/res/layout/activity_forecast.xml" value="0.29454022988505746" />
         <entry key="..\:/Users/UKGC/StudioProjects/SimpleWeather/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/UKGC/StudioProjects/SimpleWeather/app/src/main/res/layout/fragment_forecast.xml" value="0.1" />
-        <entry key="..\:/Users/UKGC/StudioProjects/SimpleWeather/app/src/main/res/layout/fragment_weather.xml" value="0.1" />
+        <entry key="..\:/Users/UKGC/StudioProjects/SimpleWeather/app/src/main/res/layout/fragment_forecast.xml" value="0.3625" />
+        <entry key="..\:/Users/UKGC/StudioProjects/SimpleWeather/app/src/main/res/layout/fragment_image.xml" value="0.3625" />
+        <entry key="..\:/Users/UKGC/StudioProjects/SimpleWeather/app/src/main/res/layout/fragment_startimage.xml" value="0.14327485380116958" />
+        <entry key="..\:/Users/UKGC/StudioProjects/SimpleWeather/app/src/main/res/layout/fragment_weather.xml" value="0.3625" />
       </map>
     </option>
   </component>

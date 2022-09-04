@@ -14,7 +14,8 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="600dp" />
+        android:layout_height="600dp"
+        android:background="@drawable/weather"/>
 
     <Button
         android:id="@+id/btn_toWeather"

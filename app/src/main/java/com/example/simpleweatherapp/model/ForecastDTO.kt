@@ -95,15 +95,13 @@ data class City (
 
 fun ForecastDTO.toForecast(): ForecastModel{
     var newForecast = ForecastModel()
+    val city = City()
 
-    newForecast.name?.let {
-        this.city?.name = it
+    city.name?.let {
+        newForecast.name = it
     }
 
-    newForecast.date?.let {
-        if (this.list.isNotEmpty())
-        this.list.get(0).dtTxt = it
-    }
+
 
     return newForecast
 }

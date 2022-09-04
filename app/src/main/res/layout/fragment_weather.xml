@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        tools:context=".view.WeatherFragment">
+        tools:context=".view.MainActivity">
 
         <Button
             android:id="@+id/btn_forecast"
@@ -75,7 +75,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/weather_main" />
-//fsdfsdfsdfs
+
         <TextView
             android:id="@+id/weather_reports"
             android:layout_width="0dp"

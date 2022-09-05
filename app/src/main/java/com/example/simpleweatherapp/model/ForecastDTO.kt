@@ -62,13 +62,13 @@ data class SysForecast (
 data class List (
 
     @SerializedName("dt"         ) var dt         : Int?               = null,
-    @SerializedName("main"       ) var main       : MainForecast?              = MainForecast(),
+    @SerializedName("main"       ) var main       : Main?              = Main(),
     @SerializedName("weatherForecast"    ) var weather    : ArrayList<WeatherForecast> = arrayListOf(),
-    @SerializedName("clouds"     ) var clouds     : CloudsForecast?            = CloudsForecast(),
-    @SerializedName("wind"       ) var wind       : WindForecast?              = WindForecast(),
+    @SerializedName("clouds"     ) var clouds     : Clouds?            = Clouds(),
+    @SerializedName("wind"       ) var wind       : Wind?              = Wind(),
     @SerializedName("visibility" ) var visibility : Int?               = null,
     @SerializedName("pop"        ) var pop        : Int?               = null,
-    @SerializedName("sys"        ) var sys        : SysForecast?               = SysForecast(),
+    @SerializedName("sys"        ) var sys        : Sys?               = Sys(),
     @SerializedName("dt_txt"     ) var dtTxt      : String?            = null
 
 )
@@ -84,7 +84,7 @@ data class City (
 
     @SerializedName("id"         ) var id         : Int?    = null,
     @SerializedName("name"       ) var name       : String? = null,
-    @SerializedName("coord"      ) var coord      : CoordForecast?  = CoordForecast(),
+    @SerializedName("coord"      ) var coord      : Coord?  = Coord(),
     @SerializedName("country"    ) var country    : String? = null,
     @SerializedName("population" ) var population : Int?    = null,
     @SerializedName("timezone"   ) var timezone   : Int?    = null,
@@ -93,7 +93,7 @@ data class City (
 
 )
 
-fun ForecastDTO.toModel(): ForecastModel{
+fun ForecastDTO.toForecast(): ForecastModel{
     var newForecast = ForecastModel()
     val city = City()
 
@@ -101,15 +101,8 @@ fun ForecastDTO.toModel(): ForecastModel{
         newForecast.name = it
     }
 
-    if (list.isNotEmpty())
-    list.forEach {
-        newForecast.date = it.dtTxt.toString()
-        newForecast.main = it.main?.temp.toString()
-        newForecast.feel = it.main?.feelsLike!!
-        newForecast.temp = it.main?.temp!!
-        newForecast.min = it.main?.tempMin!!
-        newForecast.max = it.main?.tempMax!!
-    }
+
+
     return newForecast
 }
 

@@ -1,11 +1,10 @@
 package com.example.simpleweatherapp.services
 
-import android.util.Log
-import android.widget.Toast
 import com.example.simpleweatherapp.api.IForecastAPI
+import com.example.simpleweatherapp.api.IWeatherAPI
 import com.example.simpleweatherapp.model.ForecastDTO
 import com.example.simpleweatherapp.model.ForecastModel
-import com.example.simpleweatherapp.model.toModel
+import com.example.simpleweatherapp.model.toForecast
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -31,8 +30,7 @@ class ForecastService() {
             if (response.isSuccessful) {
                 // API response code 200
                 response.body()?.let { data ->
-                    return data.toModel()
-
+                    return data.toForecast()
                 }
             }
         } catch (ex: Exception) {

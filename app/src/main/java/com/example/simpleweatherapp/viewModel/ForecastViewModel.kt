@@ -2,6 +2,7 @@ package com.example.simpleweatherapp.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.simpleweatherapp.model.ForecastDTO
 import com.example.simpleweatherapp.model.ForecastModel
 import com.example.simpleweatherapp.model.WeatherModel
 import com.example.simpleweatherapp.services.ForecastService

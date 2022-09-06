@@ -7,8 +7,6 @@ import androidx.fragment.app.activityViewModels
 import com.example.simpleweatherapp.R
 import com.example.simpleweatherapp.databinding.FragmentForecastBinding
 import com.example.simpleweatherapp.viewModel.ForecastViewModel
-import com.example.simpleweatherapp.viewModel.WeatherViewModel
-import kotlin.concurrent.fixedRateTimer
 
 class ForecastFragment: Fragment(R.layout.fragment_forecast) {
 
@@ -22,6 +20,9 @@ class ForecastFragment: Fragment(R.layout.fragment_forecast) {
             forecastViewModel = sharedViewModel
             forecastFragment = this@ForecastFragment
         }
+
+
+
 
     }
 

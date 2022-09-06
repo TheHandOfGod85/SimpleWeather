@@ -10,9 +10,15 @@ data class ForecastDTO (
     @SerializedName("message" ) var message : Int?            = null,
     @SerializedName("cnt"     ) var cnt     : Int?            = null,
     @SerializedName("list"    ) var list    : ArrayList<List> = arrayListOf(),
-    @SerializedName("city"    ) var city    : City?           = City()
+    @SerializedName("city"    ) var city    : City?           = City(),
+    @SerializedName("main"    ) var main    : MainForecast?   = MainForecast(),
+    @SerializedName("weather" ) var weather : WeatherForecast?= WeatherForecast(),
+    @SerializedName("clouds"  ) var clouds  : CloudsForecast? = CloudsForecast(),
+    @SerializedName("wind"    ) var wind    : WindForecast?   = WindForecast(),
+    @SerializedName("sys"     ) var sys     : SysForecast?    = SysForecast(),
+    @SerializedName("coord"   ) var coord   : CoordForecast?  = CoordForecast(),
 
-)
+    )
 annotation class JsonClass1(val generateAdapter: Boolean)
 
 
@@ -95,21 +101,27 @@ data class City (
 
 fun ForecastDTO.toModel(): ForecastModel{
     var newForecast = ForecastModel()
-    val city = City()
-
-    city.name?.let {
-        newForecast.name = it
-    }
 
     if (list.isNotEmpty())
     list.forEach {
-        newForecast.date = it.dtTxt.toString()
-        newForecast.main = it.main?.temp.toString()
+        newForecast.date = it.dtTxt!!
         newForecast.feel = it.main?.feelsLike!!
         newForecast.temp = it.main?.temp!!
         newForecast.min = it.main?.tempMin!!
         newForecast.max = it.main?.tempMax!!
+        newForecast.pressure = it.main?.pressure!!
+        newForecast.humidity = it.main?.humidity!!
     }
+    weather?.description?.let {
+        newForecast.description = it
+    }
+    city?.name?.let {
+        newForecast.name = it
+    }
+
+
+
+
     return newForecast
 }
 

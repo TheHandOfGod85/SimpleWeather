@@ -13,8 +13,16 @@ class ForecastModel {
     var date: String = ""
 
 
+
     override fun toString(): String {
-        return super.toString()
+        return "$date\n" +
+                "$name\n" +
+                "$temp\n" +
+                "$feel\n" +
+                "$min\n" +
+                "$max\n" +
+                "$pressure\n" +
+                "$humidity"
     }
 
 

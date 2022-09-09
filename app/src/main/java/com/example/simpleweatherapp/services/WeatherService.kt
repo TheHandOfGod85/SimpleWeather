@@ -1,6 +1,6 @@
 package com.example.simpleweatherapp.services
 
-import com.example.simpleweatherapp.api.IWeatherAPI
+import com.example.simpleweatherapp.api.IOpenWeatherAPI
 import com.example.simpleweatherapp.model.WeatherDTO
 import com.example.simpleweatherapp.model.WeatherModel
 import com.example.simpleweatherapp.model.toModel
@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class WeatherService() {
 
 
-    private val weatherAPI: IWeatherAPI
+    private val weatherAPI: IOpenWeatherAPI
 
     init {
         weatherAPI = Retrofit.Builder()
@@ -20,7 +20,7 @@ class WeatherService() {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
-            .create(IWeatherAPI::class.java)
+            .create(IOpenWeatherAPI::class.java)
 
     }
 

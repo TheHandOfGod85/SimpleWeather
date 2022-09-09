@@ -4,6 +4,8 @@ package com.example.simpleweatherapp.model
 import com.google.gson.annotations.SerializedName
 
 // new gfgf
+annotation class JsonClass2(val generateAdapter: Boolean)
+
 data class ForecastDTO (
 
     @SerializedName("cod"     ) var cod     : String?         = null,
@@ -11,15 +13,8 @@ data class ForecastDTO (
     @SerializedName("cnt"     ) var cnt     : Int?            = null,
     @SerializedName("list"    ) var list    : ArrayList<List> = arrayListOf(),
     @SerializedName("city"    ) var city    : City?           = City(),
-    @SerializedName("main"    ) var main    : MainForecast?   = MainForecast(),
-    @SerializedName("weather" ) var weather : WeatherForecast?= WeatherForecast(),
-    @SerializedName("clouds"  ) var clouds  : CloudsForecast? = CloudsForecast(),
-    @SerializedName("wind"    ) var wind    : WindForecast?   = WindForecast(),
-    @SerializedName("sys"     ) var sys     : SysForecast?    = SysForecast(),
-    @SerializedName("coord"   ) var coord   : CoordForecast?  = CoordForecast(),
-
     )
-annotation class JsonClass1(val generateAdapter: Boolean)
+
 
 
 data class MainForecast (
@@ -65,17 +60,22 @@ data class SysForecast (
 
 )
 
+data class Rain(
+    @SerializedName("3h") var h: Double? = null
+)
+
 data class List (
 
     @SerializedName("dt"         ) var dt         : Int?               = null,
     @SerializedName("main"       ) var main       : MainForecast?              = MainForecast(),
-    @SerializedName("weatherForecast"    ) var weather    : ArrayList<WeatherForecast> = arrayListOf(),
+    @SerializedName("weather"    ) var weather    : ArrayList<WeatherForecast> = arrayListOf(),
     @SerializedName("clouds"     ) var clouds     : CloudsForecast?            = CloudsForecast(),
     @SerializedName("wind"       ) var wind       : WindForecast?              = WindForecast(),
     @SerializedName("visibility" ) var visibility : Int?               = null,
-    @SerializedName("pop"        ) var pop        : Int?               = null,
+    @SerializedName("pop"        ) var pop        : Double?               = null,
     @SerializedName("sys"        ) var sys        : SysForecast?               = SysForecast(),
-    @SerializedName("dt_txt"     ) var dtTxt      : String?            = null
+    @SerializedName("dt_txt"     ) var dtTxt      : String?            = null,
+    @SerializedName("rain") var rain : Rain? = Rain()
 
 )
 
@@ -112,10 +112,13 @@ fun ForecastDTO.toModel(): ForecastModel{
         newForecast.pressure = it.main?.pressure!!
         newForecast.humidity = it.main?.humidity!!
     }
-    weather?.description?.let {
-        newForecast.description = it
+
+    list.forEach{
+        newForecast.description = it.weather.get(0).description.toString()
     }
-    city?.name?.let {
+
+
+    city?.name!!.let {
         newForecast.name = it
     }
 

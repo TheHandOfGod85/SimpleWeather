@@ -1,8 +1,6 @@
 package com.example.simpleweatherapp.services
 
-import android.util.Log
-import android.widget.Toast
-import com.example.simpleweatherapp.api.IForecastAPI
+import com.example.simpleweatherapp.api.IOpenWeatherAPI
 import com.example.simpleweatherapp.model.ForecastDTO
 import com.example.simpleweatherapp.model.ForecastModel
 import com.example.simpleweatherapp.model.toModel
@@ -12,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ForecastService() {
-    private val forecastAPI: IForecastAPI
+    private val forecastAPI: IOpenWeatherAPI
 
     init {
         forecastAPI = Retrofit.Builder()
@@ -20,7 +18,7 @@ class ForecastService() {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
-            .create(IForecastAPI::class.java)
+            .create(IOpenWeatherAPI::class.java)
 
     }
 

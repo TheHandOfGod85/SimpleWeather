@@ -22,7 +22,8 @@ class ForecastModel {
                 "$min\n" +
                 "$max\n" +
                 "$pressure\n" +
-                "$humidity"
+                "$humidity\n" +
+                "$description"
     }
 
 

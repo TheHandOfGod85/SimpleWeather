@@ -9,9 +9,14 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface IWeatherAPI {
+interface IOpenWeatherAPI {
     @GET("weather?appid=d6bfb53bd9ca4a082bd1cd1d942405d3&units=metric")
     fun getWeatherByCity(@Query("q") cityName: String): Deferred<Response<WeatherDTO>>
+
+
+
+    @GET("forecast?appid=d6bfb53bd9ca4a082bd1cd1d942405d3&cnt=3&units=metric")
+    fun getForecastByCity(@Query("q") cityName: String): Deferred<Response<ForecastDTO>>
 
 
 

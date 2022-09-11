@@ -24,6 +24,7 @@ class WeatherFragment: Fragment(R.layout.fragment_weather) {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             weatherFragment = this@WeatherFragment
+
         }
     }
 

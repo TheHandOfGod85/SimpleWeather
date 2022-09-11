@@ -4,31 +4,29 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simpleweatherapp.databinding.FragmentForecastBinding
+import com.example.simpleweatherapp.model.List
 import com.example.simpleweatherapp.viewModel.ForecastViewModel
 
-class ForecastAdapter(val forecastList: ArrayList<ForecastViewModel>): RecyclerView.Adapter<ForecastAdapter.ForecastViewHolder>() {
+class ForecastAdapter(private  var  list: ArrayList<List>): RecyclerView.Adapter<ForecastAdapter.ForecastViewHolder>() {
+
 
     inner class ForecastViewHolder(val forecastBinding: FragmentForecastBinding)
         : RecyclerView.ViewHolder(forecastBinding.root){
-            fun bindForecast(forecastViewModel: ForecastViewModel){
-                forecastBinding.txtDate.text = forecastViewModel.forecastResult.value?.date!!
-                forecastBinding.txtFeel.text = forecastViewModel.forecastResult.value?.feel!!.toString()
-                forecastBinding.txtMin.text = forecastViewModel.forecastResult.value?.max!!.toString()
-                forecastBinding.txtMax.text = forecastViewModel.forecastResult.value?.min!!.toString()
-                forecastBinding.txtTemp.text = forecastViewModel.forecastResult.value?.temp!!.toString()
-                forecastBinding.txtDescription.text = forecastViewModel.forecastResult.value?.description!!
+            fun bind(list1: List){
+                forecastBinding.list = list1
             }
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForecastViewHolder {
-        return ForecastViewHolder(FragmentForecastBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        val inflater = LayoutInflater.from(parent.context)
+        val listItemBinding = FragmentForecastBinding.inflate(inflater,parent,false)
+        return ForecastViewHolder(listItemBinding)
 
     }
 
     override fun onBindViewHolder(holder: ForecastViewHolder, position: Int) {
-        val forecast = forecastList[position]
-        holder.bindForecast(forecast)
+        holder.bind(list[position])
     }
 
-    override fun getItemCount(): Int = forecastList.size
+    override fun getItemCount(): Int = list.size
 }

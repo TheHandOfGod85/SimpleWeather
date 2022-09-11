@@ -9,6 +9,7 @@
         <variable
             name="viewModel"
             type="com.example.simpleweatherapp.viewModel.WeatherViewModel" />
+
         <variable
             name="weatherFragment"
             type="com.example.simpleweatherapp.view.WeatherFragment" />
@@ -42,7 +43,7 @@
             android:hint="City name"
             android:inputType="textPersonName"
             android:minHeight="55dp"
-            android:text="@={viewModel.cityName}"
+            android:text="@={viewModel.cityName }"
             android:textColor="@color/black"
             android:textColorHint="@color/teal_200"
             app:layout_constraintEnd_toEndOf="parent"

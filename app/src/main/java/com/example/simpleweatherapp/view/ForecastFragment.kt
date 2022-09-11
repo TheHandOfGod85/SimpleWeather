@@ -11,19 +11,24 @@ import com.example.simpleweatherapp.databinding.FragmentForecastBinding
 import com.example.simpleweatherapp.model.List
 import com.example.simpleweatherapp.viewModel.ForecastViewModel
 
-class ForecastFragment: Fragment(R.layout.forecast_recyclerview) {
+class ForecastFragment : Fragment(R.layout.forecast_recyclerview) {
 
-    private  var binding: ForecastRecyclerviewBinding? = null
+    private var binding: ForecastRecyclerviewBinding? = null
+
     private val sharedViewModel: ForecastViewModel by activityViewModels()
-    private val list = ArrayList<ForecastViewModel>()
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = ForecastRecyclerviewBinding.bind(view)
-        val adapter = ForecastAdapter(list)
-        binding?.apply {
-            lifecycleOwner = viewLifecycleOwner
-            binding?.recyclerview?.adapter = adapter
+        binding!!.lifecycleOwner = viewLifecycleOwner
+        binding!!.recyclerview.apply {
+            adapter = ForecastAdapter(sharedViewModel.forecastResult.value?.list!!)
 
+        }
+        binding!!.apply {
+            viewModel = sharedViewModel
+            bind = this@ForecastFragment
         }
     }
 
@@ -34,3 +39,7 @@ class ForecastFragment: Fragment(R.layout.forecast_recyclerview) {
 
 
 }
+
+
+
+

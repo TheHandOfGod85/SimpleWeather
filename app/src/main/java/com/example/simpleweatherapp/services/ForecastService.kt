@@ -22,14 +22,14 @@ class ForecastService() {
 
     }
 
-    suspend fun getForecastByCityName(cityName: String): ForecastModel{
-        var result = ForecastModel()
+    suspend fun getForecastByCityName(cityName: String): ForecastDTO{
+        var result = ForecastDTO()
         try {
             val response: Response<ForecastDTO> = forecastAPI.getForecastByCity(cityName).await()
             if (response.isSuccessful) {
                 // API response code 200
                 response.body()?.let { data ->
-                    return data.toModel()
+                    return data
 
                 }
             }

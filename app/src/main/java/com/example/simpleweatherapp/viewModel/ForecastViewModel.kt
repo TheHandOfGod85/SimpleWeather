@@ -14,7 +14,7 @@ class ForecastViewModel(): ViewModel() {
     private val forecastRepository = ForecastService()
 
     val cityName : MutableLiveData<String> = MutableLiveData("")
-    val forecastResult : MutableLiveData<ForecastModel> = MutableLiveData(ForecastModel())
+    val forecastResult : MutableLiveData<ForecastDTO> = MutableLiveData(ForecastDTO())
 
     fun getForecastByCityName(){
         cityName.value?.let {

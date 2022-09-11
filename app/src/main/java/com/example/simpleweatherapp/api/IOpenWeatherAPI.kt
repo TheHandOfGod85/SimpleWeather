@@ -15,7 +15,7 @@ interface IOpenWeatherAPI {
 
 
 
-    @GET("forecast?appid=d6bfb53bd9ca4a082bd1cd1d942405d3&cnt=3&units=metric")
+    @GET("forecast?appid=d6bfb53bd9ca4a082bd1cd1d942405d3&cnt=10&units=metric")
     fun getForecastByCity(@Query("q") cityName: String): Deferred<Response<ForecastDTO>>
 
 

@@ -27,7 +27,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#cdb4db"
-        android:text="Check Weather"
+        android:text="Weather"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +41,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#cdb4db"
-        android:text="Check Forecast"
+        android:text="Forecast"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </RelativeLayout>

@@ -22,6 +22,7 @@ class ForecastFragment : Fragment(R.layout.forecast_recyclerview) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = ForecastRecyclerviewBinding.bind(view)
         binding!!.lifecycleOwner = viewLifecycleOwner
+
         binding!!.recyclerview.apply {
             adapter = ForecastAdapter(sharedViewModel.forecastResult.value?.list!!)
 

@@ -99,32 +99,5 @@ data class City (
 
 )
 
-fun ForecastDTO.toModel(): ForecastModel{
-    var newForecast = ForecastModel()
 
-    if (list.isNotEmpty())
-    list.forEach {
-        newForecast.date = it.dtTxt!!
-        newForecast.feel = it.main?.feelsLike!!
-        newForecast.temp = it.main?.temp!!
-        newForecast.min = it.main?.tempMin!!
-        newForecast.max = it.main?.tempMax!!
-        newForecast.pressure = it.main?.pressure!!
-        newForecast.humidity = it.main?.humidity!!
-    }
-
-    list.forEach{
-        newForecast.description = it.weather.get(0).description.toString()
-    }
-
-
-    city?.name!!.let {
-        newForecast.name = it
-    }
-
-
-
-
-    return newForecast
-}
 

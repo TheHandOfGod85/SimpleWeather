@@ -11,9 +11,9 @@ class WeatherModel{
     var humidity: Int = 0
     var name: String = ""
 
-    override fun toString(): String {
-        return "Today weather condition in: $name\n Actual Temp= $temp\n Feel Like= $feel\n Temp Min=$min\n Temp Max= $max\n Pressure= $pressure\n Humidity= $humidity\n"
-    }
+//    override fun toString(): String {
+//        return "Today weather condition in: $name\n Actual Temp= $temp\n Feel Like= $feel\n Temp Min=$min\n Temp Max= $max\n Pressure= $pressure\n Humidity= $humidity\n"
+//    }
 
 
 }

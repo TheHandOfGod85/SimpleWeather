@@ -2,8 +2,6 @@ package com.example.simpleweatherapp.services
 
 import com.example.simpleweatherapp.api.IOpenWeatherAPI
 import com.example.simpleweatherapp.model.ForecastDTO
-import com.example.simpleweatherapp.model.ForecastModel
-import com.example.simpleweatherapp.model.toModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Response
 import retrofit2.Retrofit

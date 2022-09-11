@@ -14,12 +14,15 @@ import com.example.simpleweatherapp.databinding.FragmentWeatherBinding
 import com.example.simpleweatherapp.viewModel.WeatherViewModel
 
 class WeatherFragment: Fragment(R.layout.fragment_weather) {
+    // binding to fragment
     private  var binding: FragmentWeatherBinding? = null
+    // getting the view model
     private val sharedViewModel: WeatherViewModel by activityViewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentWeatherBinding.bind(view)
+        // binding the variable in the xml to the fragment
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel

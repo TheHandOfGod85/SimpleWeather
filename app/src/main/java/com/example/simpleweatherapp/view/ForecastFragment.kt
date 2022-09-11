@@ -12,9 +12,9 @@ import com.example.simpleweatherapp.model.List
 import com.example.simpleweatherapp.viewModel.ForecastViewModel
 
 class ForecastFragment : Fragment(R.layout.forecast_recyclerview) {
-
+    // binding to fragment
     private var binding: ForecastRecyclerviewBinding? = null
-
+    // getting the view model
     private val sharedViewModel: ForecastViewModel by activityViewModels()
 
 
@@ -23,10 +23,11 @@ class ForecastFragment : Fragment(R.layout.forecast_recyclerview) {
         binding = ForecastRecyclerviewBinding.bind(view)
         binding!!.lifecycleOwner = viewLifecycleOwner
 
+        // setting the adapter to recyclerview
         binding!!.recyclerview.apply {
             adapter = ForecastAdapter(sharedViewModel.forecastResult.value?.list!!)
-
         }
+        // binding the variable in the xml to the fragment
         binding!!.apply {
             viewModel = sharedViewModel
             bind = this@ForecastFragment

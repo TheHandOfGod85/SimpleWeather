@@ -21,17 +21,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
+        // changing fragment with a button
         binding!!.btnToWeather.setOnClickListener{
             replaceFragment(WeatherFragment())
         }
-
+        // changing fragment with a button
         binding!!.btnToForecast.setOnClickListener {
             replaceFragment(ForecastFragment())
         }
 
     }
-
+    // a function to change fragment using a frgment container in the main xml
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()

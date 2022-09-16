@@ -32,6 +32,7 @@ class ForecastFragment : Fragment(R.layout.forecast_recyclerview) {
         }
     }
 
+    // reset the binding
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null

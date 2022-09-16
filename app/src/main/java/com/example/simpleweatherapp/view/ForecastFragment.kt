@@ -7,8 +7,6 @@ import androidx.fragment.app.activityViewModels
 import com.example.simpleweatherapp.R
 import com.example.simpleweatherapp.adapter.ForecastAdapter
 import com.example.simpleweatherapp.databinding.ForecastRecyclerviewBinding
-import com.example.simpleweatherapp.databinding.FragmentForecastBinding
-import com.example.simpleweatherapp.model.List
 import com.example.simpleweatherapp.viewModel.ForecastViewModel
 
 class ForecastFragment : Fragment(R.layout.forecast_recyclerview) {

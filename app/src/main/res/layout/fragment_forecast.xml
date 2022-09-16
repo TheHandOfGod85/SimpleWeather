@@ -8,7 +8,7 @@
 
         <variable
             name="list"
-            type="com.example.simpleweatherapp.model.List" />
+            type="com.example.simpleweatherapp.model.ListForecastModel" />
 
     </data>
 
@@ -56,7 +56,7 @@
                         android:layout_weight="1"
                         android:textColor="@android:color/black"
                         android:textSize="14sp"
-                        tools:text="@{ list.dtTxt }" />
+                        tools:text="@{ list.date }" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -80,7 +80,7 @@
                         android:layout_weight="1"
                         android:textColor="@android:color/black"
                         android:textSize="14sp"
-                        tools:text="@{ list.main.feelsLike.toString() }" />
+                        tools:text="@{ list.tempFelt.toString() }" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -104,7 +104,7 @@
                         android:layout_weight="1"
                         android:textColor="@android:color/black"
                         android:textSize="14sp"
-                        tools:text="@{ list.main.temp.toString() }" />
+                        tools:text="@{ list.temp.toString() }" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -128,7 +128,7 @@
                         android:layout_weight="1"
                         android:textColor="@android:color/black"
                         android:textSize="14sp"
-                        tools:text="@{ list.main.tempMin.toString() }" />
+                        tools:text="@{ list.tempMin.toString() }" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -152,7 +152,7 @@
                         android:layout_weight="1"
                         android:textColor="@android:color/black"
                         android:textSize="14sp"
-                        tools:text="@{ list.main.tempMax.toString() }" />
+                        tools:text="@{ list.tempMax.toString() }" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -176,7 +176,7 @@
                         android:layout_weight="1"
                         android:textColor="@android:color/black"
                         android:textSize="14sp"
-                        tools:text="@{ list.weather.get(0).description }" />
+                        tools:text="@{ list.description }" />
                 </LinearLayout>
 
             </LinearLayout>

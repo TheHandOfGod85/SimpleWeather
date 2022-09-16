@@ -4,16 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simpleweatherapp.databinding.FragmentForecastBinding
-import com.example.simpleweatherapp.model.List
-import com.example.simpleweatherapp.viewModel.ForecastViewModel
+import com.example.simpleweatherapp.model.ListForecastModel
 
-class ForecastAdapter(private  var  list: ArrayList<List>): RecyclerView.Adapter<ForecastAdapter.ForecastViewHolder>() {
+class ForecastAdapter(private  var  listForecastModel: ArrayList<ListForecastModel?>): RecyclerView.Adapter<ForecastAdapter.ForecastViewHolder>() {
 
 
     inner class ForecastViewHolder(val forecastBinding: FragmentForecastBinding)
         : RecyclerView.ViewHolder(forecastBinding.root){
-            fun bind(list1: List){
-                forecastBinding.list = list1
+            fun bind(listForecastmodel1: ListForecastModel){
+                forecastBinding.list = listForecastmodel1
             }
         }
 
@@ -25,8 +24,8 @@ class ForecastAdapter(private  var  list: ArrayList<List>): RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ForecastViewHolder, position: Int) {
-        holder.bind(list[position])
+        holder.bind(listForecastModel[position]!!)
     }
 
-    override fun getItemCount(): Int = list.size
+    override fun getItemCount(): Int = listForecastModel.size
 }

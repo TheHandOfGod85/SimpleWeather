@@ -3,6 +3,7 @@ package com.example.simpleweatherapp.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.simpleweatherapp.model.ForecastDTO
+import com.example.simpleweatherapp.model.ForecastModel
 import com.example.simpleweatherapp.services.ForecastService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -12,7 +13,7 @@ class ForecastViewModel(): ViewModel() {
     private val forecastRepository = ForecastService()
 
     val cityName : MutableLiveData<String> = MutableLiveData("")
-    val forecastResult : MutableLiveData<ForecastDTO> = MutableLiveData(ForecastDTO())
+    val forecastResult : MutableLiveData<ForecastModel> = MutableLiveData(ForecastModel())
 
 
     fun getForecastByCityName(){

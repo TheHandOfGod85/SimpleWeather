@@ -2,6 +2,8 @@ package com.example.simpleweatherapp.services
 
 import com.example.simpleweatherapp.api.IOpenWeatherAPI
 import com.example.simpleweatherapp.model.ForecastDTO
+import com.example.simpleweatherapp.model.ForecastModel
+import com.example.simpleweatherapp.model.toModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -20,14 +22,14 @@ class ForecastService() {
 
     }
 
-    suspend fun getForecastByCityName(cityName: String): ForecastDTO{
-        var result = ForecastDTO()
+    suspend fun getForecastByCityName(cityName: String): ForecastModel{
+        var result = ForecastModel()
         try {
             val response: Response<ForecastDTO> = forecastAPI.getForecastByCity(cityName).await()
             if (response.isSuccessful) {
                 // API response code 200
                 response.body()?.let { data ->
-                    return data
+                    return data.toModel()
 
                 }
             }

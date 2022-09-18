@@ -102,14 +102,24 @@ data class CityForecastDTO (
 fun ForecastDTO.toModel(): ForecastModel{
     var newForecast = ForecastModel()
 
-    newForecast.list.forEach { it!!.date = listForecastDTO.get(0).dtTxt }
-    newForecast.list.forEach { it!!.temp = listForecastDTO.get(0).main!!.temp }
-    newForecast.list.forEach { it!!.tempFelt = listForecastDTO.get(0).main!!.feelsLike }
-    newForecast.list.forEach { it!!.tempMin = listForecastDTO.get(0).main!!.tempMin }
-    newForecast.list.forEach { it!!.tempMax = listForecastDTO.get(0).main!!.tempMax }
-    newForecast.list.forEach { it!!.description = listForecastDTO.get(0).weather.get(0).description }
+    this.listForecastDTO.forEach { item ->
+        var listForecastModel: ListForecastModel = ListForecastModel()
 
+        item.main?.let {
+            listForecastModel.temp = it.temp
+            listForecastModel.tempFelt = it.feelsLike
+            listForecastModel.tempMin = it.tempMin
+            listForecastModel.tempMax = it.tempMax
+        }
+        item.dtTxt?.let {
+            listForecastModel.date = it
+        }
 
+        item.weather[0].description?.let {
+            listForecastModel.description = it
+        }
+        newForecast.list.add(listForecastModel)
+    }
 
     return newForecast
 }

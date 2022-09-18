@@ -2,14 +2,10 @@ package com.example.simpleweatherapp.view
 
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.replace
-import androidx.lifecycle.ViewModel
 import com.example.simpleweatherapp.R
 import com.example.simpleweatherapp.databinding.ActivityMainBinding
-import com.example.simpleweatherapp.viewModel.WeatherViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-    // a function to change fragment using a frgment container in the main xml
+    // a function to change fragment using a fragment container in the main xml
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()

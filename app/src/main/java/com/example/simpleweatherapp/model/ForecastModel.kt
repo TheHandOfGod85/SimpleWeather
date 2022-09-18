@@ -1,7 +1,7 @@
 package com.example.simpleweatherapp.model
 
 class ForecastModel {
-    var list: ArrayList<ListForecastModel?> = arrayListOf()
+    var list: ArrayList<ListForecastModel> = arrayListOf()
 }
 
 data class ListForecastModel(
@@ -11,5 +11,4 @@ data class ListForecastModel(
     var tempMin: Double? = null,
     var tempMax: Double? = null,
     var description: String? = null
-
 )

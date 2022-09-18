@@ -10,10 +10,6 @@
             name="viewModel"
             type="com.example.simpleweatherapp.viewModel.ForecastViewModel" />
 
-        <variable
-            name="bind"
-            type="com.example.simpleweatherapp.view.ForecastFragment" />
-
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
